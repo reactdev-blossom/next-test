@@ -7,6 +7,7 @@ import Image from "next/image";
 async function fetchMovie(id: string) {
   const res = await axios.get(`${apiConfig.baseURL}/api/movies/details/${id}`);
   if (res.status == 200) {
+    console.log(res.data);
     return res.data.data;
   } else return [];
 }
