@@ -1,18 +1,17 @@
 // app/movies/[id]/page.tsx
 import Comment from "@/components/Comment";
+import { apiConfig } from "@/lib/apiUrlConfig";
 import axios from "axios";
 import Image from "next/image";
 
 async function fetchMovie(id: string) {
-  const res = await axios.get(`http://localhost:3000/api/movies/details/${id}`);
+  const res = await axios.get(`${apiConfig.baseURL}/api/movies/details/${id}`);
   if (res.status == 200) {
     return res.data.data;
   } else return [];
 }
 async function fetchComments(id: string) {
-  const res = await axios.get(
-    `http://localhost:3000/api/movies/comments/${id}`
-  );
+  const res = await axios.get(`${apiConfig.baseURL}/api/movies/comments/${id}`);
   if (res.status == 200) {
     console.log(res.data.data[0].comments);
     return res.data.data[0].comments;
