@@ -32,8 +32,8 @@ const Profile = () => {
   return (
     <div className="flex flex-col justify-start items-start p-2 w-full h-auto">
       <h1>My Profile</h1>
-      {renderBox("Firstname", data.firstName)}
-      {renderBox("Lastname", data.lastName)}
+      {renderBox("Firstname", data?.firstName)}
+      {renderBox("Lastname", data?.lastName)}
     </div>
   );
 };

@@ -1,5 +1,6 @@
 "use client";
 
+import { apiConfig } from "@/lib/apiUrlConfig";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useRef } from "react";
@@ -10,7 +11,7 @@ interface Data {
 export async function PostData(data: Data, id: string) {
   const token = "asdfasdfdasfhasdljkfhjkdashfjklhasdjklfhklasdjhjk";
   const response = await axios.post(
-    `http://localhost:3000/api/movies/comments/${id}`,
+    `${apiConfig.baseURL}/api/movies/comments/${id}`,
     data,
     {
       headers: { Authorization: `Bearer ${token}` },

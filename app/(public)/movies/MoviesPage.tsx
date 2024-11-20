@@ -22,7 +22,7 @@ const MoviesPage: React.FC<search> = async ({ searchParams }) => {
   );
   const movies: Movie[] = response.data.data;
   const totalPages = response.data.totalPages;
-  console.log("total pages", response.data.totalPages);
+  console.log("total pages", response.data.totalPages, response.data);
 
   return (
     <div className="flex flex-col justify-start items-start w-full ">
