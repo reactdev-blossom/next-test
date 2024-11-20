@@ -5,6 +5,7 @@ import React from "react";
 import { search } from "./page";
 import PaginationControlled from "@/components/Pagination";
 import SearchComponent from "@/components/SearchComponent";
+import { apiConfig } from "@/lib/apiUrlConfig";
 
 interface Movie {
   _id: string;
@@ -17,7 +18,7 @@ const MoviesPage: React.FC<search> = async ({ searchParams }) => {
   const limit = Number(search.limit) || 10;
   const page = Number(search.page) || 1;
   const response = await axios.get(
-    `http://localhost:3000/api/movies?page=${page}&limit=${limit}`
+    `${apiConfig.baseURL}/api/movies?page=${page}&limit=${limit}`
   );
   const movies: Movie[] = response.data.data;
   const totalPages = response.data.totalPages;

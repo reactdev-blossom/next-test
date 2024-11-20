@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { apiConfig } from "@/lib/apiUrlConfig";
 
 const Profile = () => {
   const [data, setData] = useState<any>(null);
@@ -10,7 +11,7 @@ const Profile = () => {
     const fetchProfile = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:3000/api/user/profileDetails",
+          `${apiConfig.baseURL}/api/user/profileDetails`,
           {
             headers: { Authorization: `Bearer tokentokentokenetojkasfdj` },
           }
